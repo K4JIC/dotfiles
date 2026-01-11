@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/tozaki/cursus/level3/philosophers/philo2'
+let g:netrw_dirhist_3='/home/tozaki/cursus/level3/philosophers/philo'
+let g:netrw_dirhist_2='/home/tozaki/cursus/level3/ASMsyscall'
+let g:netrw_dirhist_1='/home/tozaki/cursus/level3/philosophers/philo'
+let g:netrw_dirhist_0='/home/tozaki/cursus/level3/philosophers'
+let g:netrw_dirhist_9='/home/tozaki/cursus/level3'
+let g:netrw_dirhist_8='/home/tozaki/cursus'
+let g:netrw_dirhist_7='/home/tozaki/cursus/level2'
+let g:netrw_dirhist_6='/home/tozaki/cursus/level2/minitalk'
+let g:netrw_dirhist_5='/home/tozaki/cursus/level2/minitalk/mt'
