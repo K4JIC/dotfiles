@@ -1,0 +1,33 @@
+{
+    "vim.useCtrlKeys": true,
+    "vim.timeout": 3000,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.handleKeys": {
+        "<C-j>": false
+    },
+    "workbench.colorTheme": "Dark Modern",
+    "editor.fontFamily": "'Zed Mono', 'JetBrains Mono', 'Iosevka', monospace",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 1.5
+}

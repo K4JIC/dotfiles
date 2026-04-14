@@ -52,6 +52,7 @@ Plug 'lambdalisue/vim-fern'
 Plug 'morhetz/gruvbox'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'itchyny/lightline.vim'
+Plug '42Paris/42header'
 call plug#end()
 
 "Fern

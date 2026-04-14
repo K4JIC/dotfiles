@@ -1,16 +1,20 @@
 # Set up the prompt
 
+# history
 setopt inc_append_history
-setopt share_history
+setopt histignorealldups sharehistory
+export HISTSIZE=100000
+export EXTENDED_HISTORY='%Y%m%d%H:%M:%S'
+HISTFILE=~/.zsh_history
+SAVEHIST=100000
 
-# 
 setopt auto_cd
 setopt auto_pushd
 
+# prompt
 autoload -Uz promptinit
 promptinit
 prompt adam1
-# prompt
 # local GREEN=$'%{\e[1;32%}'
 # local ORANGE=$'%{\e[1;33%}'
 # local DEFAULT=$'%{\e[1;m%}'
@@ -22,23 +26,22 @@ export MAIL='tozaki@student.42tokyo.jp'
 
 # alias
 alias ls='ls -F'
+alias vi=vim
+alias zed=zeditor
 alias ccw='cc -Wall -Wextra -Werror'
 alias val="valgrind --leak-check=full --show-leak-kinds=all -q"
 alias tree="pwd;find . | sort | sed '1d;s/^\.//;s/\/\([^/]*\)$/|--\1/;s/\/[^/|]*/| /g'"
 alias clip="xsel --clipboard --input"
 alias nv="nvim"
-alias obsidian="nohup /home/tozaki/app/obsidian/Obsidian-1.9.14.AppImage &"
 alias norm="norminette && ~/checkjp.sh"
+alias mini='~/mini-moulinette/mini-moul.sh'
+alias mkc='touch ${PWD:t}.c'
+alias francinette=/home/tozaki/francinette/tester.sh
+alias paco=/home/tozaki/francinette/tester.sh
 source $ZSH~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-setopt histignorealldups sharehistory
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
-
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.zsh_history
 
 # Use modern completion system
 autoload -Uz compinit
@@ -61,11 +64,7 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-alias mini='~/mini-moulinette/mini-moul.sh'
-alias mkc='touch ${PWD:t}.c'
 
-
-alias francinette=/home/tozaki/francinette/tester.sh
-alias paco=/home/tozaki/francinette/tester.sh
-
-# 
+bindkey '^P' history-beginning-search-backward
+bindkey '^N' history-beginning-search-forward
+export PATH=$HOME/.local/bin:$PATH

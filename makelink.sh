@@ -2,13 +2,18 @@
 
 DOTFILES_DIR=~/dotfiles
 
-echo "シンボリックリンクを作成します"
+echo "stow を使用してシンボリックリンクを更新します"
 
-for file in "$DOTFILES_DIR"/*/.[^.]*; do
-	if [[ $file == "$DOTFILES_DIR/." || $file == "$DOTFILES_DIR/.." ]]; then
-		continue
-	fi
-	echo "$fileのリンクを作成します"
-	link_name=~/${file#"$DOTFILES_DIR"/*/}
-	ln -sfn "$file" "$link_name"
+cd "$DOTFILES_DIR"
+
+# 管理対象のパッケージをリストアップ（.git などを除くディレクトリ）
+PACKAGES=(bash zsh git vim zed waybar ghostty niri wezterm lazygit kanshi)
+
+for pkg in "${PACKAGES[@]}"; do
+    if [ -d "$pkg" ]; then
+        echo "$pkg のリンクを作成/更新します"
+        stow -R "$pkg"
+    fi
 done
+
+echo "完了しました"

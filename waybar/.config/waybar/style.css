@@ -1,0 +1,21 @@
+* {
+    /* 
+    根本解決: fonts.conf により "Font Awesome 5 Free" が優先されるよう設定済み。
+    個別設定を排除し、全体のフォント指定を統一します。
+    */
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 5 Free", "Noto Sans CJK JP", sans-serif;
+    font-size: 14px;
+}
+
+/* 個別のモジュール色指定などを削除し、パディングのみ共通設定に統合 */
+#cpu, 
+#memory, 
+#temperature, 
+#backlight, 
+#battery, 
+#clock, 
+#tray, 
+#pulseaudio, 
+#network {
+    padding: 0 10px;
+}
