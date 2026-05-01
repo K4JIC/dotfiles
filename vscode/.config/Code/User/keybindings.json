@@ -8,5 +8,15 @@
     "key": "ctrl+w h",
     "command": "workbench.explorer.fileView.focus",
     "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+up",
+    "command": "list.scrollUp",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+down",
+    "command": "list.scrollDown",
+    "when": "listFocus && !inputFocus"
   }
 ]

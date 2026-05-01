@@ -35,6 +35,8 @@ nnoremap <Esc>j :m .+1<CR>==
 nnoremap <Esc>k :m .-2<CR>==
 xnoremap <Esc>j :m '>+1<CR>gv=gv
 xnoremap <Esc>k :m '<-2<CR>gv=gv
+set clipboard^=unnamedplus
+noremap gy "+y
 
 "c
 autocmd FileType c nnoremap <F5> :w<CR>:!gcc % -o %< && ./%<<CR>

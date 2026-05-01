@@ -9,6 +9,7 @@
 	"42header.username": "tozaki",
     "editor.inlineSuggest.enabled": false,
     "vim.useCtrlKeys": true,
+    "vim.useSystemClipboard": true,
     "vim.timeout": 3000,
     "vim.insertModeKeyBindings": [
         {
