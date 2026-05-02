@@ -1,0 +1,14 @@
+[general]
+import=[
+"~/.config/alacritty/alacritty-theme/themes/gruvbox_dark.toml"
+]
+
+[font]
+size=11.0
+offset={x=0,y=4}
+normal={family="JetBrainsMono",style="Regular"}
+bold={family="JetBrainsMono",style="bold"}
+italic={family="JetBrainsMono",style="italic"}
+
+[terminal]
+shell={program="/bin/zsh",args=["-l","-c","tmux a -t 0 || tmux"]}
