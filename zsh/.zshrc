@@ -68,3 +68,20 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
 export PATH=$HOME/.local/bin:$PATH
+
+# tmux layout: nvim (left) + gemini (right)
+ide() {
+    local session_name=$(basename "$PWD" | tr . _)
+    
+    if [ -n "$TMUX" ]; then
+        # Already inside tmux: split current window
+        tmux split-window -h -p 35 "gemini"
+        tmux send-keys -t top-left "nvim ." C-m
+    else
+        # Not in tmux: create new session
+        tmux new-session -d -s "$session_name"
+        tmux send-keys -t "$session_name" "nvim ." C-m
+        tmux split-window -h -p 35 -t "$session_name" "gemini"
+        tmux attach-session -t "$session_name"
+    fi
+}
