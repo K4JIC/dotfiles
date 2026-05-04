@@ -11,5 +11,4 @@ bold={family="JetBrainsMono",style="bold"}
 italic={family="JetBrainsMono",style="italic"}
 
 [terminal.shell]
-program="sh"
-args=["-c","tmux new-session -t default || tmux new-session -s default"]
+program="tmux"
