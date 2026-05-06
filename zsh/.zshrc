@@ -72,11 +72,11 @@ export PATH=$HOME/.local/bin:$PATH
 # tmux layout: nvim (left) + gemini (right)
 ide() {
     local session_name=$(basename "$PWD" | tr . _)
-    
     if [ -n "$TMUX" ]; then
         # Already inside tmux: split current window
         tmux split-window -h -p 35 "gemini"
         tmux send-keys -t top-left "nvim ." C-m
+		tmux select-pane -L
     else
         # Not in tmux: create new session
         tmux new-session -d -s "$session_name"
