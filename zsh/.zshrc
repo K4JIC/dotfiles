@@ -26,7 +26,7 @@ export MAIL='tozaki@student.42tokyo.jp'
 
 # alias
 alias ls='ls -F'
-alias vi=vim
+alias vi=nvim
 alias zed=zeditor
 alias ccw='cc -Wall -Wextra -Werror'
 alias val="valgrind --leak-check=full --show-leak-kinds=all -q"
