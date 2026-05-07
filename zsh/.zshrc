@@ -83,5 +83,6 @@ ide() {
         tmux send-keys -t "$session_name" "nvim ." C-m
         tmux split-window -h -p 35 -t "$session_name" "gemini"
         tmux attach-session -t "$session_name"
+		tmux select-pane -L
     fi
 }
