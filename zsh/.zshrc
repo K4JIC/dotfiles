@@ -12,9 +12,9 @@ setopt auto_cd
 setopt auto_pushd
 
 # prompt
-autoload -Uz promptinit
-promptinit
-prompt adam1
+# autoload -Uz promptinit
+# promptinit
+# prompt adam1
 # local GREEN=$'%{\e[1;32%}'
 # local ORANGE=$'%{\e[1;33%}'
 # local DEFAULT=$'%{\e[1;m%}'
@@ -86,3 +86,10 @@ ide() {
 		tmux select-pane -L
     fi
 }
+
+# plugin
+if command -v starship &> /dev/null; then
+	eval "$(starship init zsh)"
+else
+	echo "starship is not installed."
+fi
