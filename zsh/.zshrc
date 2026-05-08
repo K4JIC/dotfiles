@@ -67,23 +67,28 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
-export PATH=$HOME/.local/bin:$PATH
+# path
+export PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/.linuxbrew" ]; then
+    eval "$($HOME/.linuxbrew/bin/brew shellenv)"
+fi
 
 # tmux layout: nvim (left) + gemini (right)
 ide() {
     local session_name=$(basename "$PWD" | tr . _)
     if [ -n "$TMUX" ]; then
         # Already inside tmux: split current window
-        tmux split-window -h -p 35 "gemini"
-        tmux send-keys -t top-left "nvim ." C-m
-		tmux select-pane -L
+        # -d: don't make the new pane active, so we stay in the left pane
+        tmux split-window -h -p 35 -d
+        tmux send-keys -t right "gemini" C-m
+        nvim .
     else
         # Not in tmux: create new session
         tmux new-session -d -s "$session_name"
-        tmux send-keys -t "$session_name" "nvim ." C-m
-        tmux split-window -h -p 35 -t "$session_name" "gemini"
+        tmux split-window -h -p 35 -t "$session_name" -d
+        tmux send-keys -t "$session_name:0.right" "gemini" C-m
+        tmux send-keys -t "$session_name:0.left" "nvim ." C-m
         tmux attach-session -t "$session_name"
-		tmux select-pane -L
     fi
 }
 
